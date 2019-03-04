@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" >
+      <div class="form-group">
+        <label class="col-md-4">Nickname</label>
+        <input type="text" class="form-control" name="user_nick" formControlName="user_nick" #user_nick/>
+      </div> 
+      <div *ngIf="angForm.controls['user_nick'].invalid && (angForm.controls['user_nick'].dirty || angForm.controls['user_nick'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['user_nick'].errors.required">
+          Nickname is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Password</label>
+        <input type="password" class="form-control" name="user_pass" formControlName="user_pass" #user_pass/>
+      </div>
+      <div *ngIf="angForm.controls['user_pass'].invalid && (angForm.controls['user_pass'].dirty || angForm.controls['user_pass'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['user_pass'].errors.required">
+          Password is required.
+        </div>
+      </div>
+      <div class="form-group">
+	 
+        <button (click)="addAdUser(user_nick.value, user_pass.value)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
