@@ -1,0 +1,8 @@
+<div >
+	 
+        <button (click)="logout()" class="btn btn-primary">Logout</button>
+</div>
+     
+<div *ngFor="let aduser of adusers;let last = last">
+	<h1 *ngIf="last">Welcome {{aduser.user_nick}}!</h1>
+ </div>
